@@ -1,9 +1,9 @@
 package net.ddns.noidea.client;
 
-import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.backends.gwt.GwtApplication;
-import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import net.ddns.noidea.DamPoly;
+        import com.badlogic.gdx.ApplicationListener;
+        import com.badlogic.gdx.backends.gwt.GwtApplication;
+        import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
+        import net.ddns.noidea.DamPoly;
 
 public class HtmlLauncher extends GwtApplication {
 
