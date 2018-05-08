@@ -5,6 +5,7 @@ buildscript {
         mavenLocal()
         mavenCentral()
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        maven { url "http://fquintana.ddns.net/nexus/repository/maven-dam/" }
         jcenter()
     }
     dependencies {
@@ -45,6 +46,7 @@ project(":desktop") {
         compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
         compile "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
+        compile "net.ddns.fquintana:ConsoleCommands:1.0-SNAPSHOT"
         
     }
 }
