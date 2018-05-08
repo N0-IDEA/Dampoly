@@ -8,6 +8,10 @@ public class TarjetasCasilla extends Casilla {
 
     public MazoTarjetas tiene;
 
+    public TarjetasCasilla(String nombre) {
+        super(nombre);
+    }
+
     public void muestraTarjeta() {
     }
 }

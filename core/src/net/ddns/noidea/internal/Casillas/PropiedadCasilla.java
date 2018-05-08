@@ -1,9 +1,9 @@
-package net.ddns.noidea.internal.Casillas.Propiedades;
+package net.ddns.noidea.internal.Casillas;
 
 import net.ddns.noidea.internal.Casillas.Casilla;
 import net.ddns.noidea.internal.Jugador;
 
-public class Propiedad extends Casilla {
+public class PropiedadCasilla extends Casilla {
 
     public Integer precio;
 
@@ -15,8 +15,12 @@ public class Propiedad extends Casilla {
 
     public Jugador tiene;
 
+    public PropiedadCasilla(String nombre, Integer precio, Integer hipoteca) {
+        super(nombre);
+    }
+
     public Boolean isHipotecable() {
-        return null;
+        return false;
     }
 
     public void hipotecarPropiedad() {

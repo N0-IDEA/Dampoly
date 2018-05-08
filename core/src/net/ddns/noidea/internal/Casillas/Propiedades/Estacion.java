@@ -1,6 +1,8 @@
 package net.ddns.noidea.internal.Casillas.Propiedades;
 
-public class Estacion extends Propiedad {
+import net.ddns.noidea.internal.Casillas.PropiedadCasilla;
+
+public class Estacion extends PropiedadCasilla {
 
     public Integer alquilerUnaEstacion;
 
@@ -10,4 +12,7 @@ public class Estacion extends Propiedad {
 
     public Integer alquilerCuatroEstaciones;
 
+    public Estacion(String nombre, Integer precio, Integer hipoteca) {
+        super(nombre, precio, hipoteca);
+    }
 }

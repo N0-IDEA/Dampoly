@@ -6,6 +6,10 @@ public class CarcelCasilla extends Casilla {
 
     public Integer precioMulta;
 
+    public CarcelCasilla(String nombre, int numero) {
+        super(nombre);
+    }
+
     public void pagarMulta() {
     }
 
