@@ -54,8 +54,23 @@ public class Tablero {
         return jugadores;
     }
 
-    public void addJugador(Jugador jugador) {
-        this.jugadores.add(jugador);
+    private boolean checkIfJugadorExists(Jugador jugadorComprueba) {
+        boolean exist = false;
+
+        for (Jugador jugador : getJugadores()) {
+            if (jugador.getFicha() == jugadorComprueba.getFicha())
+                return true;
+        }
+
+        return exist;
+    }
+
+    public boolean addJugador(Jugador jugador) {
+        if (!checkIfJugadorExists(jugador)) {
+            this.jugadores.add(jugador);
+            return true;
+        }
+        return false;
     }
 
     private void addCasilla(Casilla casilla) {

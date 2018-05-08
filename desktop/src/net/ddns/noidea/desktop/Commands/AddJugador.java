@@ -29,12 +29,14 @@ public class AddJugador extends CommandSingle {
         }
         else
         {
-            //TODO Que no se pueda jugar la misma ficha dos veces
             DamPoly damPoly = DesktopLauncher.getDamPoly();
             Tablero tablero = damPoly.getTablero();
-            tablero.addJugador(new Jugador(ficha));
-            coloredConsole.sendMessage("Jugador añadido con exito.");
-            return true;
+            boolean done = tablero.addJugador(new Jugador(ficha));
+            if (done)
+                coloredConsole.sendMessage("Jugador añadido con exito.");
+            else
+                coloredConsole.error("Ya existe un jugador con esa ficha");
+            return done;
         }
 
     }

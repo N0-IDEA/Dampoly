@@ -22,6 +22,10 @@ public class Jugador {
 
     public Ficha ficha;
 
+    public Ficha getFicha() {
+        return ficha;
+    }
+
     public void lanzarDados() {
     }
 
