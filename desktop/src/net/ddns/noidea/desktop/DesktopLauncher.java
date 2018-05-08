@@ -12,6 +12,8 @@ import net.ddns.noidea.desktop.Commands.AddJugador;
 import net.ddns.noidea.desktop.Commands.ConfiguraCommand;
 import net.ddns.noidea.desktop.Commands.DadoCommand;
 import net.ddns.noidea.desktop.Commands.JugarCommand;
+import net.ddns.noidea.internal.Jugador;
+import net.ddns.noidea.internal.Tablero;
 
 import java.util.Arrays;
 
@@ -33,7 +35,17 @@ public class DesktopLauncher {
 	}
 
 	public static void iniciar() {
-	    commandManager.setValidCommands(Arrays.asList("help"));
+	    commandManager.setValidCommands(Arrays.asList("help", "dado"));
+	    turno();
+    }
+
+    public static void turno() {
+        ColoredConsole coloredConsole = new ColoredConsole();
+        Tablero tablero = getDamPoly().getTablero();
+        Jugador jugador = tablero.getJugadorActual();
+        coloredConsole.sendMessage(ChatColor.MAGENTA + "Es el turno del jugador " + tablero.getJugadorActual().getFicha().name());
+        coloredConsole.sendMessage("");
+        coloredConsole.sendMessage(String.format("Estas en la casilla nº%d nombre: %s", jugador.getCasillaActual().getNumero(), jugador.getCasillaActual().getNombre()));
     }
 
     private static void initCommandManager() {

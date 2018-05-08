@@ -8,12 +8,22 @@ import net.ddns.noidea.internal.Tablero;
 
 public class DamPoly extends ApplicationAdapter {
 	SpriteBatch batch;
-	Dado dado;
+	Dado dados[];
 	Tablero tablero;
 
-    public Dado getDado() {
-        return dado;
+	private boolean showDados = false;
+
+    public Dado[] getDados() {
+        return dados;
     }
+
+	public boolean isShowDados() {
+		return showDados;
+	}
+
+	public void setShowDados(boolean showDados) {
+		this.showDados = showDados;
+	}
 
 	public Tablero getTablero() {
 		return tablero;
@@ -21,9 +31,11 @@ public class DamPoly extends ApplicationAdapter {
 
 	@Override
 	public void create () {
+    	dados = new Dado[2];
 		batch = new SpriteBatch();
-		dado = new Dado();
-		tablero = new Tablero();
+		dados[0] = new Dado();
+		dados[1] = new Dado();
+		tablero = Tablero.setInstance(this);
 	}
 
 	@Override
@@ -31,7 +43,10 @@ public class DamPoly extends ApplicationAdapter {
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
-		batch.draw(dado.getImg(), 0, 0);
+		if (isShowDados()) {
+			batch.draw(dados[0].getImg(), 0, 0);
+			batch.draw(dados[1].getImg(), 250, 0);
+		}
 		batch.end();
 	}
 	

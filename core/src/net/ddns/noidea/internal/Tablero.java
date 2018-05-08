@@ -1,5 +1,6 @@
 package net.ddns.noidea.internal;
 
+import net.ddns.noidea.DamPoly;
 import net.ddns.noidea.internal.Casillas.*;
 import net.ddns.noidea.internal.Casillas.Impuestos.ImpuestoCasilla;
 import net.ddns.noidea.internal.Casillas.Impuestos.ImpuestoEspecialCasilla;
@@ -21,12 +22,31 @@ public class Tablero {
 
     private boolean playing;
 
-    public Tablero() {
+    private DamPoly damPoly;
+
+    private static Tablero tablero;
+
+    private Tablero(DamPoly damPoly) {
+        this.damPoly = damPoly;
         casillas = new ArrayList<Casilla>();
         cargarCasillas();
         jugadores = new ArrayList<Jugador>();
         dineroInicial = 20000;
         playing = false;
+    }
+
+
+    public static Tablero getInstance() {
+        return tablero;
+    }
+
+    public static Tablero setInstance(DamPoly damPoly) {
+        tablero = new Tablero(damPoly);
+        return tablero;
+    }
+
+    public DamPoly getDamPoly() {
+        return damPoly;
     }
 
     public boolean isPlaying() {
@@ -44,6 +64,11 @@ public class Tablero {
     public void empezarPartida() {
         setPlaying(true);
         jugadorActual = 0;
+        for (Jugador jugador : jugadores) {
+            jugador.dinero = dineroInicial;
+            Casilla casilla = getCasillas().get(0);
+            casilla.addJugador(jugador);
+        }
     }
 
     public void configurarPartida(Integer dineroInicial) {
@@ -52,6 +77,10 @@ public class Tablero {
 
     public ArrayList<Jugador> getJugadores() {
         return jugadores;
+    }
+
+    public Jugador getJugadorActual() {
+        return getJugadores().get(jugadorActual);
     }
 
     private boolean checkIfJugadorExists(Jugador jugadorComprueba) {
@@ -71,6 +100,10 @@ public class Tablero {
             return true;
         }
         return false;
+    }
+
+    public ArrayList<Casilla> getCasillas() {
+        return casillas;
     }
 
     private void addCasilla(Casilla casilla) {

@@ -9,6 +9,8 @@ public class Dado {
 
     ArrayList<Texture> texturas = new ArrayList<Texture>();
 
+    private Integer numero;
+
     public Dado() {
         for (int i = 1; i <= 6; i++) {
             texturas.add(new Texture("dado"+i+".gif"));
@@ -17,8 +19,16 @@ public class Dado {
     }
 
     public void setNumber(int number) {
+        numero = number;
         img = texturas.get(number-1);
     }
+
+    public Integer getNumber() {
+        return numero;
+    }
+
+
+
 
     public Texture getImg() {
         return img;

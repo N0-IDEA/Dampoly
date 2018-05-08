@@ -1,23 +1,49 @@
 package net.ddns.noidea.internal.Casillas;
 
 import net.ddns.noidea.internal.Jugador;
-import net.ddns.noidea.internal.Tablero;
+
+import java.util.ArrayList;
 
 public class Casilla {
 
     public Casilla(String nombre) {
         this.nombre = nombre;
+        this.jugadores = new ArrayList<Jugador>();
     }
 
-    public String nombre;
+    private String nombre;
 
-    public Integer numero;
+    private Integer numero;
+
+    public Integer getNumero() {
+        return numero;
+    }
 
     public void setNumero(Integer numero) {
         this.numero = numero;
     }
 
-    public Jugador jugadores;
+    public ArrayList<Jugador> jugadores;
+
+    public void addJugador(Jugador jugador) {
+        Casilla casilla = jugador.getCasillaActual();
+        if (casilla != null)
+            casilla.removeJugador(jugador);
+        jugador.setCasillaActual(this);
+        jugadores.add(jugador);
+    }
+
+    public void removeJugador(Jugador jugador) {
+        jugadores.remove(jugador);
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public ArrayList<Jugador> getJugadores() {
+        return jugadores;
+    }
 
     public void alEntrar() {
     }
