@@ -4,6 +4,10 @@ import net.ddns.noidea.internal.Casillas.Casilla;
 
 public class Jugador {
 
+    public Jugador(Ficha ficha) {
+        this.ficha = ficha;
+    }
+
     public Integer dinero;
 
     public Integer nTiradasDobles;
@@ -17,11 +21,6 @@ public class Jugador {
     public Boolean encarcelado;
 
     public Ficha ficha;
-
-
-    public Tablero juegan;
-
-    public Ficha tiene;
 
     public void lanzarDados() {
     }
