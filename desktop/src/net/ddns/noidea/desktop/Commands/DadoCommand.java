@@ -3,6 +3,7 @@ package net.ddns.noidea.desktop.Commands;
 import net.ddns.fquintana.ConsoleCommands.CommandsCore.ColoredConsole;
 import net.ddns.fquintana.ConsoleCommands.CommandsCore.CommandSingle;
 import net.ddns.noidea.DamPoly;
+import net.ddns.noidea.Utils.MathUtils;
 import net.ddns.noidea.desktop.DesktopLauncher;
 
 public class DadoCommand extends CommandSingle {
@@ -13,7 +14,7 @@ public class DadoCommand extends CommandSingle {
     @Override
     public boolean onCommand(ColoredConsole coloredConsole, String[] strings) {
         DamPoly damPoly = DesktopLauncher.getDamPoly();
-        damPoly.getDado().setNumber(Integer.parseInt(strings[0]));
+        damPoly.getDado().setNumber(MathUtils.ramdon(1,6));
         return false;
     }
 }
