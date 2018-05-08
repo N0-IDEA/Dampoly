@@ -14,14 +14,17 @@ public class Tablero {
 
     public Integer dineroInicial;
 
-    public java.util.Vector jugadores;
+    public ArrayList<Jugador> jugadores;
 
     public Integer jugadorActual;
 
     private ArrayList<Casilla> casillas;
 
     public Tablero() {
+        casillas = new ArrayList<Casilla>();
         cargarCasillas();
+        jugadores = new ArrayList<Jugador>();
+        dineroInicial = 20000;
     }
 
     public void siguienteTurno() {
@@ -30,7 +33,16 @@ public class Tablero {
     public void empezarPartida() {
     }
 
-    public void configurarPartida() {
+    public void configurarPartida(Integer dineroInicial) {
+        this.dineroInicial = dineroInicial;
+    }
+
+    public ArrayList<Jugador> getJugadores() {
+        return jugadores;
+    }
+
+    public void addJugador(Jugador jugador) {
+        this.jugadores.add(jugador);
     }
 
     private void addCasilla(Casilla casilla) {

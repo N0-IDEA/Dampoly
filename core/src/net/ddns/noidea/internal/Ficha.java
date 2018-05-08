@@ -6,6 +6,12 @@ public class Ficha {
 
     public File imagen;
 
-    public Jugador tiene;
+    public Ficha(File imagen) {
+        this.imagen = imagen;
+    }
+
+    public File getImagen() {
+        return imagen;
+    }
 
 }
