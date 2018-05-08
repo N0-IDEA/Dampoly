@@ -19,17 +19,31 @@ public class Tablero {
 
     private ArrayList<Casilla> casillas;
 
+    private boolean playing;
+
     public Tablero() {
         casillas = new ArrayList<Casilla>();
         cargarCasillas();
         jugadores = new ArrayList<Jugador>();
         dineroInicial = 20000;
+        playing = false;
+    }
+
+    public boolean isPlaying() {
+        return playing;
+    }
+
+    public void setPlaying(boolean playing) {
+        this.playing = playing;
     }
 
     public void siguienteTurno() {
+
     }
 
     public void empezarPartida() {
+        setPlaying(true);
+        jugadorActual = 0;
     }
 
     public void configurarPartida(Integer dineroInicial) {

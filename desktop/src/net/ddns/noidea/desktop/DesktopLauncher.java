@@ -8,12 +8,12 @@ import net.ddns.fquintana.ConsoleCommands.Commands.StopCommand;
 import net.ddns.fquintana.ConsoleCommands.CommandsCore.ColoredConsole;
 import net.ddns.fquintana.ConsoleCommands.CommandsCore.CommandManager;
 import net.ddns.noidea.DamPoly;
+import net.ddns.noidea.desktop.Commands.AddJugador;
 import net.ddns.noidea.desktop.Commands.ConfiguraCommand;
 import net.ddns.noidea.desktop.Commands.DadoCommand;
 import net.ddns.noidea.desktop.Commands.JugarCommand;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 public class DesktopLauncher {
     private static DamPoly damPoly;
@@ -25,11 +25,16 @@ public class DesktopLauncher {
 		new LwjglApplication(damPoly, config);
         ColoredConsole coloredConsole = new ColoredConsole();
         coloredConsole.sendMessage(ChatColor.AQUA + "Bienvenido al DamPoly");
+        coloredConsole.sendMessage("");
+        coloredConsole.sendMessage("Añade jugadores con el comando añadirJugador, cualquier duda usa el comando help");
         coloredConsole.sendMessage("Configura el dinero inicial con el comando condigura ej(configura 10000)");
-        coloredConsole.sendMessage("O si deseas empezar con la configuracion por defecto usa el comando jugar");
-        commandManager.setValidCommands(Arrays.asList("help","configura", "jugar"));
-
+        coloredConsole.sendMessage("O si deseas empezar con la configuracion por defecto usa el comando jugar cuando hayas terminado de añadir jugadores");
+        commandManager.setValidCommands(Arrays.asList("help","configura", "añadirJugador", "jugar"));
 	}
+
+	public static void iniciar() {
+	    commandManager.setValidCommands(Arrays.asList("help"));
+    }
 
     private static void initCommandManager() {
         commandManager = CommandManager.getManager();
@@ -38,6 +43,7 @@ public class DesktopLauncher {
         commandManager.addCommand(new DadoCommand());
         commandManager.addCommand(new ConfiguraCommand());
         commandManager.addCommand(new JugarCommand());
+        commandManager.addCommand(new AddJugador());
         commandManager.setRestricted(true);
         commandManager.start();
     }
