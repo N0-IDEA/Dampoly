@@ -17,6 +17,8 @@ public class PropiedadCasilla extends Casilla {
 
     public PropiedadCasilla(String nombre, Integer precio, Integer hipoteca) {
         super(nombre);
+        this.precio = precio;
+        this.hipoteca = hipoteca;
     }
 
     public Boolean isHipotecable() {

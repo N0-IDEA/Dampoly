@@ -8,10 +8,8 @@ import net.ddns.fquintana.ConsoleCommands.Commands.StopCommand;
 import net.ddns.fquintana.ConsoleCommands.CommandsCore.ColoredConsole;
 import net.ddns.fquintana.ConsoleCommands.CommandsCore.CommandManager;
 import net.ddns.noidea.DamPoly;
-import net.ddns.noidea.desktop.Commands.AddJugador;
-import net.ddns.noidea.desktop.Commands.ConfiguraCommand;
-import net.ddns.noidea.desktop.Commands.DadoCommand;
-import net.ddns.noidea.desktop.Commands.JugarCommand;
+import net.ddns.noidea.desktop.Commands.*;
+import net.ddns.noidea.internal.Casillas.Casilla;
 import net.ddns.noidea.internal.Jugador;
 import net.ddns.noidea.internal.Tablero;
 
@@ -35,17 +33,26 @@ public class DesktopLauncher {
 	}
 
 	public static void iniciar() {
-	    commandManager.setValidCommands(Arrays.asList("help", "dado"));
 	    turno();
     }
 
     public static void turno() {
+        commandManager.setValidCommands(Arrays.asList("help", "dado"));
         ColoredConsole coloredConsole = new ColoredConsole();
         Tablero tablero = getDamPoly().getTablero();
         Jugador jugador = tablero.getJugadorActual();
         coloredConsole.sendMessage(ChatColor.MAGENTA + "Es el turno del jugador " + tablero.getJugadorActual().getFicha().name());
+        coloredConsole.sendMessage(ChatColor.MAGENTA + "Tienes : " + jugador.dinero + "$");
         coloredConsole.sendMessage("");
         coloredConsole.sendMessage(String.format("Estas en la casilla nº%d nombre: %s", jugador.getCasillaActual().getNumero(), jugador.getCasillaActual().getNombre()));
+    }
+
+    public static void alCaer() {
+        ColoredConsole coloredConsole = new ColoredConsole();
+        Tablero tablero = getDamPoly().getTablero();
+        Jugador jugador = tablero.getJugadorActual();
+        coloredConsole.sendMessage(String.format("Has caido en la casilla nº%d nombre: %s", jugador.getCasillaActual().getNumero(), jugador.getCasillaActual().getNombre()));
+        commandManager.setValidCommands(Arrays.asList("help", "terminar", "comprar"));
     }
 
     private static void initCommandManager() {
@@ -56,6 +63,8 @@ public class DesktopLauncher {
         commandManager.addCommand(new ConfiguraCommand());
         commandManager.addCommand(new JugarCommand());
         commandManager.addCommand(new AddJugador());
+        commandManager.addCommand(new TerminarTurnoCommand());
+        commandManager.addCommand(new ComprarCommand());
         commandManager.setRestricted(true);
         commandManager.start();
     }

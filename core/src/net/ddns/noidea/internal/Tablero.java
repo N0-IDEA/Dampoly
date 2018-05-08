@@ -31,7 +31,7 @@ public class Tablero {
         casillas = new ArrayList<Casilla>();
         cargarCasillas();
         jugadores = new ArrayList<Jugador>();
-        dineroInicial = 20000;
+        dineroInicial = 100;
         playing = false;
     }
 
@@ -58,6 +58,12 @@ public class Tablero {
     }
 
     public void siguienteTurno() {
+        if (jugadorActual != jugadores.size() -1)
+            jugadorActual++;
+        else
+            jugadorActual = 0;
+
+        getDamPoly().setShowDados(false);
 
     }
 
@@ -104,6 +110,12 @@ public class Tablero {
 
     public ArrayList<Casilla> getCasillas() {
         return casillas;
+    }
+
+    public void moverJugador(int tirada) {
+        Jugador jugador = getJugadorActual();
+        Casilla nuevaCasilla = getCasillas().get(jugador.getCasillaActual().getNumero() + tirada);
+        jugador.setCasillaActual(nuevaCasilla);
     }
 
     private void addCasilla(Casilla casilla) {

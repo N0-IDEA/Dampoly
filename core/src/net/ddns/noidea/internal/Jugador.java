@@ -1,5 +1,6 @@
 package net.ddns.noidea.internal;
 
+import com.badlogic.gdx.graphics.Texture;
 import net.ddns.noidea.Dado;
 import net.ddns.noidea.DamPoly;
 import net.ddns.noidea.Utils.MathUtils;
@@ -54,6 +55,7 @@ public class Jugador {
         }
 
         Tablero.getInstance().getDamPoly().setShowDados(true);
+        Tablero.getInstance().moverJugador(tirada);
 
         return tirada;
     }
