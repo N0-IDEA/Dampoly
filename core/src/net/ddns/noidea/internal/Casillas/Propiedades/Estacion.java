@@ -12,7 +12,7 @@ public class Estacion extends PropiedadCasilla {
 
     public Integer alquilerCuatroEstaciones;
 
-    public Estacion(String nombre, Integer precio, Integer hipoteca) {
+    public Estacion(String nombre, Integer precio, Integer hipoteca,Integer alquilerUnaEstacion, Integer alquilerDosEstaciones, Integer alquilerTresEstaciones, Integer alquilerCuatroEstaciones) {
         super(nombre, precio, hipoteca);
     }
 }
