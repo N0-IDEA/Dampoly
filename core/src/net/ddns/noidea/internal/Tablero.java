@@ -149,7 +149,7 @@ public class Tablero {
         addCasilla(new Calle("Avenida De America" ,220,110,18,90,250,700,875,1050,150,150));
         addCasilla(new Calle("Suerte",220,110,18,90,250,700,875,1050,150,150));
         addCasilla(new Calle("Calle María De Molina",220,120,20,100,300,750,925,1100,150,150));
-        addCasilla(new Calle("Calle De Cea Bermudez",240,111,100,100,100,100,100,100,100,100,));
+        addCasilla(new Calle("Calle De Cea Bermudez",240,111,100,100,100,100,100,100,100,100));
         addCasilla(new Estacion("Estación Del Mediodia",200,100,25,50,100,200));
         addCasilla(new Calle("Avenida De Los Reyes Cátolicos",260,130,22,110,330,800,975,1150,150,150));
         addCasilla(new Calle("Calle Bailen",260,130,22,110,330,800,975,1150,150,150));
