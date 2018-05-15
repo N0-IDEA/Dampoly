@@ -10,8 +10,11 @@ public class Jugador {
 
     public Jugador(Ficha ficha) {
         this.ficha = ficha;
+        tiradaDisponible = true;
         nTiradasDobles = 0;
     }
+
+    private Boolean tiradaDisponible;
 
     public Integer dinero;
 
@@ -37,6 +40,10 @@ public class Jugador {
 
     public void setCasillaActual(Casilla casillaActual) {
         this.casillaActual = casillaActual;
+    }
+
+    public Boolean getTiradaDisponible() {
+        return tiradaDisponible;
     }
 
     public Integer lanzarDados() {

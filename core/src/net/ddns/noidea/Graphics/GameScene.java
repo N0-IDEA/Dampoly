@@ -18,6 +18,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class GameScene extends Stage {
     int num = 0;
+    private GameLayer gameLayer;
     public GameScene(){
         super(new ScreenViewport());
         /*Texture texture = new Texture("monopoly.jpg");
@@ -38,17 +39,15 @@ public class GameScene extends Stage {
 
         addActor(image2);*/
 
-        Skin skin  = new Skin(Gdx.files.internal("data/skin/rainbow-ui.json"));
-
-        final Label titleLabel = new Label("hola", skin, "normal", Color.YELLOW);
-
-        addActor(titleLabel);
-
-        GameLayer gameLayer = new GameLayer();
+        gameLayer = new GameLayer();
         gameLayer.setWidth(getWidth()/3);
         gameLayer.setHeight(getHeight());
         gameLayer.build();
         //gameLayer.setPosition(getWidth()/2-gameLayer.getWidth(), getHeight()/2);
         addActor(gameLayer);
+    }
+
+    public void update() {
+        gameLayer.update();
     }
 }

@@ -10,10 +10,13 @@ import net.ddns.fquintana.ConsoleCommands.CommandsCore.CommandManager;
 import net.ddns.noidea.DamPoly;
 import net.ddns.noidea.desktop.Commands.*;
 import net.ddns.noidea.internal.Casillas.Casilla;
+import net.ddns.noidea.internal.Ficha;
 import net.ddns.noidea.internal.Jugador;
 import net.ddns.noidea.internal.Tablero;
 
 import java.util.Arrays;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class DesktopLauncher {
     private static DamPoly damPoly;
@@ -30,6 +33,7 @@ public class DesktopLauncher {
         coloredConsole.sendMessage("Configura el dinero inicial con el comando condigura ej(configura 10000)");
         coloredConsole.sendMessage("O si deseas empezar con la configuracion por defecto usa el comando jugar cuando hayas terminado de añadir jugadores");
         commandManager.setValidCommands(Arrays.asList("help","configura", "añadirJugador", "jugar"));
+
 	}
 
 	public static void iniciar() {
