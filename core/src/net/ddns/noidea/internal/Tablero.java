@@ -1,6 +1,7 @@
 package net.ddns.noidea.internal;
 
 import net.ddns.noidea.DamPoly;
+import net.ddns.noidea.Graphics.GameScene;
 import net.ddns.noidea.internal.Casillas.*;
 import net.ddns.noidea.internal.Casillas.Impuestos.ImpuestoCasilla;
 import net.ddns.noidea.internal.Casillas.Impuestos.ImpuestoEspecialCasilla;
@@ -75,6 +76,8 @@ public class Tablero {
             Casilla casilla = getCasillas().get(0);
             casilla.addJugador(jugador);
         }
+
+        getDamPoly().setGameScene(new GameScene());
     }
 
     public void configurarPartida(Integer dineroInicial) {
