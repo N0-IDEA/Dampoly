@@ -12,6 +12,7 @@ public class GameScene extends Stage {
     public GameScene(){
         super(new ScreenViewport());
 
+
         gameLayer = new GameLayer();
         //float maxGameLayer = (gameLayer.getWidth())/3;
         gameLayer.setWidth(getWidth()/3);
