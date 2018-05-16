@@ -1,5 +1,6 @@
 package net.ddns.noidea.internal;
 
+import com.badlogic.gdx.Gdx;
 import net.ddns.noidea.DamPoly;
 import net.ddns.noidea.Graphics.GameScene;
 import net.ddns.noidea.internal.Casillas.*;
@@ -69,7 +70,6 @@ public class Tablero {
     }
 
     public void empezarPartida() {
-        setPlaying(true);
         jugadorActual = 0;
         for (Jugador jugador : jugadores) {
             jugador.dinero = dineroInicial;
@@ -77,7 +77,14 @@ public class Tablero {
             casilla.addJugador(jugador);
         }
 
-        getDamPoly().setGameScene(new GameScene());
+        Gdx.app.postRunnable(new Runnable() {
+            @Override
+            public void run() {
+                getDamPoly().setGameScene(new GameScene());
+                setPlaying(true);
+            }
+        });
+
     }
 
     public void configurarPartida(Integer dineroInicial) {

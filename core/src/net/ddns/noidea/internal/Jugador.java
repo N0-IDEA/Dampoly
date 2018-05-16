@@ -68,6 +68,7 @@ public class Jugador {
     }
 
     public void terminarTurno() {
+        Tablero.getInstance().siguienteTurno();
     }
 
     public void declararBancarrota() {
