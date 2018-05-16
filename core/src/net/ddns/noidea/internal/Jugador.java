@@ -1,8 +1,6 @@
 package net.ddns.noidea.internal;
 
-import com.badlogic.gdx.graphics.Texture;
 import net.ddns.noidea.Dado;
-import net.ddns.noidea.DamPoly;
 import net.ddns.noidea.Utils.MathUtils;
 import net.ddns.noidea.internal.Casillas.Casilla;
 
@@ -11,10 +9,12 @@ public class Jugador {
     public Jugador(Ficha ficha) {
         this.ficha = ficha;
         tiradaDisponible = true;
+        tiradaTerminada = false;
         nTiradasDobles = 0;
     }
 
     private Boolean tiradaDisponible;
+    private Boolean tiradaTerminada;
 
     public Integer dinero;
 
@@ -64,11 +64,15 @@ public class Jugador {
         Tablero.getInstance().getDamPoly().setShowDados(true);
         Tablero.getInstance().moverJugador(tirada);
 
+        tiradaTerminada = true;
+
         return tirada;
     }
 
-    public void terminarTurno() {
-        Tablero.getInstance().siguienteTurno();
+    public boolean terminarTurno() {
+        if (tiradaTerminada)
+            Tablero.getInstance().siguienteTurno();
+        return tiradaTerminada;
     }
 
     public void declararBancarrota() {
