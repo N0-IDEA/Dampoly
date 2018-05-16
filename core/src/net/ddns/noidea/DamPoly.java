@@ -46,7 +46,7 @@ public class DamPoly extends ApplicationAdapter {
 		dados[0] = new Dado();
 		dados[1] = new Dado();
 		tablero = Tablero.setInstance(this);
-		testing();
+		//testing();
 	}
 
 	public static void testing() {

@@ -18,7 +18,7 @@ public class TerminarTurnoCommand extends CommandSingle {
         Tablero tablero = DesktopLauncher.getDamPoly().getTablero();
         Jugador jugador = tablero.getJugadorActual();
 
-        tablero.siguienteTurno();
+        jugador.terminarTurno();
         DesktopLauncher.turno();
         return true;
 

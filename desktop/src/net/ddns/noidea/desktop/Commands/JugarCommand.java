@@ -14,6 +14,7 @@ public class JugarCommand extends CommandSingle {
     public boolean run(ColoredConsole coloredConsole, String[] strings) {
         Tablero tablero = DesktopLauncher.getDamPoly().getTablero();
         tablero.empezarPartida();
+
         if (tablero.getJugadores().size() < 2) {
             coloredConsole.error("El numero minimo de jugadores es 2");
             return false;
