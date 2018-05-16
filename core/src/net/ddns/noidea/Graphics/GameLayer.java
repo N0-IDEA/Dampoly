@@ -9,7 +9,6 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import net.ddns.noidea.internal.Jugador;
 import net.ddns.noidea.internal.Tablero;
@@ -59,13 +58,12 @@ public class GameLayer extends Group {
         });
 
 
-
         // ---------------------------------------------------------------
         // Table
         // ---------------------------------------------------------------
         Table table = new Table(skin);
         table.setFillParent(true);
-        //table.setDebug(true);
+        table.setDebug(true);
         table.top().left();
 
         table.add(turno);
@@ -94,8 +92,30 @@ public class GameLayer extends Group {
 
         //table.add(nombreJTurno);
 
-
         addActor(table);
+
+        Button button = new Button(new Label("Terminar turno", skin), skin);
+        button.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                if(!Tablero.getInstance().getJugadorActual().terminarTurno()) {
+                    Dialog dialog = new Dialog("No se puede terminar turno", skin) {
+                        @Override
+                        protected void result(Object object) {
+                            if (object.equals(1L)) {
+                                this.hide();
+                            }
+                        }
+                    };
+                    dialog.button("Cerrar", 1L);
+                    dialog.show(GameLayer.this.getStage());
+                    return false;
+                }
+
+                return true;
+            }
+        });
+        addActor(button);
 
     }
 
