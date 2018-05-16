@@ -11,10 +11,12 @@ public class Jugador {
     public Jugador(Ficha ficha) {
         this.ficha = ficha;
         tiradaDisponible = true;
+        tiradaTerminada = false;
         nTiradasDobles = 0;
     }
 
     private Boolean tiradaDisponible;
+    private Boolean tiradaTerminada;
 
     public Integer dinero;
 
@@ -63,11 +65,14 @@ public class Jugador {
 
         Tablero.getInstance().getDamPoly().setShowDados(true);
         Tablero.getInstance().moverJugador(tirada);
-
+        tiradaTerminada = true;
         return tirada;
     }
 
-    public void terminarTurno() {
+    public boolean terminarTurno() {
+               if (tiradaTerminada)
+                       Tablero.getInstance().siguienteTurno();
+              return tiradaTerminada;
     }
 
     public void declararBancarrota() {

@@ -3,6 +3,7 @@ package net.ddns.noidea.Graphics;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -11,8 +12,10 @@ import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.google.gwt.thirdparty.common.css.compiler.gssfunctions.GssFunctions;
 import net.ddns.noidea.internal.Jugador;
 import net.ddns.noidea.internal.Tablero;
+
 
 import java.util.ArrayList;
 
@@ -29,6 +32,8 @@ public class GameLayer extends Group {
     private Label nombreJTurno;
 
     private ImageButton dado;
+
+
 
     public GameLayer() {
         loadTextures();
@@ -59,43 +64,74 @@ public class GameLayer extends Group {
         });
 
 
-
         // ---------------------------------------------------------------
         // Table
         // ---------------------------------------------------------------
         Table table = new Table(skin);
         table.setFillParent(true);
-        //table.setDebug(true);
+        table.setDebug(true);
         table.top().left();
-
+        table.defaults().expandX();
         table.add(turno);
         table.add(nombreJTurno);
         table.add(dado);
 
-        separator(table, 10);
+        table.row();
+        //separator(table, 10);
 
         visualJugadorList = new ArrayList<VisualJugador>();
         for (Jugador jugador : tablero.getJugadores()) {
+            //TODO Introducir Avatar del jugador
+            //table.add(jugador.getFicha().getImagen());
             table.add(jugador.getFicha().name());
             VisualJugador visualJugador = new VisualJugador(jugador);
             visualJugadorList.add(visualJugador);
-            table.add(" Dinero: ", "font", Color.DARK_GRAY);
-            table.add(visualJugador.getMoney());
-            table.row();
+            table.add(visualJugador.getMoney()).colspan(2).right();
+            table.row().left();
+
             Tree tree = new Tree(skin);
-            tree.add(visualJugador.getNodeCalles());
-            tree.add(visualJugador.getNodeEstaciones());
-            tree.add(visualJugador.getNodeServicios());
-            tree.add(visualJugador.getNodeTarjetas());
-            table.add(tree);
-            separator(table, 10);
+            tree.add(visualJugador.nodePropiedades);
+            visualJugador.nodePropiedades.add(visualJugador.getNodeCalles());
+            visualJugador.nodePropiedades.add(visualJugador.getNodeEstaciones());
+            visualJugador.nodePropiedades.add(visualJugador.getNodeServicios());
+            visualJugador.nodePropiedades.add(visualJugador.getNodeTarjetas());
+            tree.add(visualJugador.nodeVacio);
+            table.add(tree).colspan(6);
+
+            table.row();
+            //separator(table, 10);
+
 
         }
 
+
         //table.add(nombreJTurno);
 
-
         addActor(table);
+
+
+        Button button = new Button(new Label("Terminar turno", skin), skin);
+        button.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                if(!Tablero.getInstance().getJugadorActual().terminarTurno()) {
+                    Dialog dialog = new Dialog("No se puede terminar turno", skin) {
+                        @Override
+                        protected void result(Object object) {
+                            if (object.equals(1L)) {
+                                this.hide();
+                            }
+                        }
+                    };
+                    dialog.button("Cerrar", 1L);
+                    dialog.show(GameLayer.this.getStage());
+                    return false;
+                }
+
+                return true;
+            }
+        });
+        addActor(button);
 
     }
 
@@ -127,14 +163,18 @@ public class GameLayer extends Group {
         private Label money =  new Label("####", skin);
         private Jugador jugador;
 
+
         public VisualJugador(Jugador jugador) {
             this.jugador = jugador;
         }
 
+        Tree.Node nodePropiedades = new Tree.Node(new Label ("Gestionar\nPropiedades", skin));
         Tree.Node nodeCalles = new Tree.Node(new Label("Calles", skin));
         Tree.Node nodeEstaciones = new Tree.Node(new Label("Estaciones", skin));
         Tree.Node nodeServicios = new Tree.Node(new Label("Servicios", skin));
         Tree.Node nodeTarjetas = new Tree.Node(new Label("Tarjetas", skin));
+
+        Tree.Node nodeVacio = new Tree.Node(new Label ("\n", skin));
 
         public Jugador getJugador() {
             return jugador;

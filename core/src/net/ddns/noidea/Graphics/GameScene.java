@@ -40,6 +40,7 @@ public class GameScene extends Stage {
         addActor(image2);*/
 
         gameLayer = new GameLayer();
+        //float maxGameLayer = (gameLayer.getWidth())/3;
         gameLayer.setWidth(getWidth()/3);
         gameLayer.setHeight(getHeight());
         gameLayer.build();
