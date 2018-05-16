@@ -1,18 +1,14 @@
 package net.ddns.noidea.Graphics;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.google.gwt.thirdparty.common.css.compiler.gssfunctions.GssFunctions;
 import net.ddns.noidea.internal.Jugador;
 import net.ddns.noidea.internal.Tablero;
 
@@ -22,10 +18,6 @@ import java.util.ArrayList;
 public class GameLayer extends Group {
 
     private static final String UI_FILE = "data/skin/comic-ui.json";
-
-    private static final String TEXT_SETTINGS = "Settings";
-    private static final String TEXT_SOUND = "SOUND";
-    private static final String TEXT_VOLUME = "Volume";
 
     private Skin skin;
 
@@ -54,6 +46,7 @@ public class GameLayer extends Group {
         nombreJTurno = new Label("#####", skin);
 
         Texture texture = new Texture(Gdx.files.internal("data/dado.png"));
+        texture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         dado = new ImageButton(new TextureRegionDrawable(new TextureRegion(texture)));
         dado.addListener(new InputListener() {
             @Override

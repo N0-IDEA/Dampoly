@@ -35,8 +35,9 @@ public class DamPoly extends ApplicationAdapter {
 		return tablero;
 	}
 
-	public void setGameScene(GameScene gameScene) {
-		this.gameScene = gameScene;
+
+	public GameScene getGameScene() {
+		return gameScene;
 	}
 
 	@Override
@@ -46,7 +47,16 @@ public class DamPoly extends ApplicationAdapter {
 		dados[0] = new Dado();
 		dados[1] = new Dado();
 		tablero = Tablero.setInstance(this);
-		//testing();
+		gameScene = new GameScene();
+		testing();
+	}
+
+	@Override
+	public void resize(int width, int height) {
+		if (gameScene != null) {
+			gameScene.getViewport().update(width, height, true);
+			gameScene.getViewport().apply();
+		}
 	}
 
 	public static void testing() {
