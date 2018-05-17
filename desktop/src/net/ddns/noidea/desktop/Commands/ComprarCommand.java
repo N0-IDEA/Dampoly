@@ -13,7 +13,7 @@ public class ComprarCommand extends CommandSingle {
     public ComprarCommand() {
         super("comprar", "", "Si es posible compra la propiedad", 0);
     }
-    public ArrayList<Jugador> propiedades;
+
 
     @Override
     public boolean run(ColoredConsole coloredConsole, String[] strings) {

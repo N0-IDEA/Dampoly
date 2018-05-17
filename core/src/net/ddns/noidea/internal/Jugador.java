@@ -15,7 +15,11 @@ public class Jugador {
         tiradaDisponible = true;
         nTiradasDobles = 0;
     }
-    public ArrayList<Jugador> propiedades;
+    public void haz() {
+        ArrayList<Jugador> propiedades;
+        propiedades = new ArrayList<Jugador>();
+        propiedades.add(this);
+    }
     private Boolean tiradaDisponible;
 
     public Integer dinero;
@@ -63,8 +67,9 @@ public class Jugador {
         if (dados[0].getNumber() == dados[1].getNumber()) {
             nTiradasDobles++;
             //TODO Evento al ocurrir una tirada doble
-            if(nTiradasDobles==3){
 
+            if (nTiradasDobles==3){
+                 tiradaDisponible = false;
             }
 
         }

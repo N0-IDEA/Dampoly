@@ -3,7 +3,7 @@ package net.ddns.noidea.internal.Casillas;
 import net.ddns.noidea.internal.Casillas.Casilla;
 import net.ddns.noidea.internal.Jugador;
 import net.ddns.noidea.internal.Tablero;
-import net.ddns.fquintana.ConsoleCommands.CommandsCore.ColoredConsole;
+
 
 public class PropiedadCasilla extends Casilla {
 
@@ -30,25 +30,25 @@ public class PropiedadCasilla extends Casilla {
     public void hipotecarPropiedad() {
     }
 
-    public void comprarla(ColoredConsole coloredConsole, String[] strings) {
+    public void comprarla() {
         if (casilla instanceof PropiedadCasilla) {
             PropiedadCasilla propiedadCasilla = (PropiedadCasilla) casilla;
             if (propietario != null)
-                coloredConsole.error("Esta casilla ya le pertenece a alguien");
+                System.out.println();
             else {
-                if (precio > jugador.dinero)
-                    coloredConsole.error("No tienes dinero suficiente, cuesta " + precio + " y tu tienes " + jugador.dinero);
+                if (precio > Jugador.dinero)
+                    System.out.println();
                 else {
-                    jugador.dinero -= precio;
-                    propietario = jugador;
-                    coloredConsole.sendMessage("Has comprado la casilla: " + propiedadCasilla.getNombre());
-                    propiedades.add(this);
-                }
+                    Jugador.dinero -= precio;
+                    propietario = Jugador.;
+                    System.out.println();
+                    Jugador.haz(this);
+                    }
             }
         }
         else
         {
-            coloredConsole.error("Esta casilla no se puede comprar");
+            System.out.println();
         }
         }
 
