@@ -6,6 +6,8 @@ import net.ddns.noidea.DamPoly;
 import net.ddns.noidea.Utils.MathUtils;
 import net.ddns.noidea.internal.Casillas.Casilla;
 
+import java.util.ArrayList;
+
 public class Jugador {
 
     public Jugador(Ficha ficha) {
@@ -13,7 +15,7 @@ public class Jugador {
         tiradaDisponible = true;
         nTiradasDobles = 0;
     }
-
+    public ArrayList<Jugador> propiedades;
     private Boolean tiradaDisponible;
 
     public Integer dinero;
@@ -46,6 +48,8 @@ public class Jugador {
         return tiradaDisponible;
     }
 
+
+
     public Integer lanzarDados() {
         int tirada = 0;
         Dado dados[] = Tablero.getInstance().getDamPoly().getDados();
@@ -59,6 +63,10 @@ public class Jugador {
         if (dados[0].getNumber() == dados[1].getNumber()) {
             nTiradasDobles++;
             //TODO Evento al ocurrir una tirada doble
+            if(nTiradasDobles==3){
+
+            }
+
         }
 
         Tablero.getInstance().getDamPoly().setShowDados(true);
@@ -66,6 +74,8 @@ public class Jugador {
 
         return tirada;
     }
+
+
 
     public void terminarTurno() {
         Tablero.getInstance().siguienteTurno();
