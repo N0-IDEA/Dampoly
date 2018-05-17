@@ -108,9 +108,6 @@ public class GameLayer extends Group {
         final ScrollPane scroller = new ScrollPane(jugadores);
 
         Button button = new Button(new Label("Terminar turno", skin), skin);
-
-        //button.setBackground(skin.getDrawable("azul"));
-
         button.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -132,10 +129,6 @@ public class GameLayer extends Group {
             }
         });
 
-        ///Background - Table
-
-
-
         final Table tabla = new Table();
         tabla.setBackground(skin.getDrawable("rojo"));//Fondo de la tabla principal (no deja modificar "Button"), es la que se queda abajo
         tabla.setFillParent(true);
@@ -147,9 +140,6 @@ public class GameLayer extends Group {
         tabla.row();
 
         addActor(tabla);
-
-        //addActor(button);
-
     }
 
     private void separator(Table table, int size) {
