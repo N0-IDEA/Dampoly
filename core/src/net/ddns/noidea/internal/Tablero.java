@@ -80,7 +80,7 @@ public class Tablero {
         Gdx.app.postRunnable(new Runnable() {
             @Override
             public void run() {
-                getDamPoly().setGameScene(new GameScene());
+                getDamPoly().getGameScene().init();
                 setPlaying(true);
             }
         });

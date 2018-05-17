@@ -11,6 +11,13 @@ Crimson-Roach
   orig: 690, 831
   offset: 0, 0
   index: -1
+Fondo-UI
+    rotate: false
+    xy: 100, 192
+    size: 200, 300
+    orig: 200, 300
+    offset: 0, 0
+    index: -1
 bubble-lower-left
   rotate: false
   xy: 207, 8
@@ -291,8 +298,16 @@ window
   xy: 1005, 620
   size: 16, 16
   split: 3, 3, 3, 3
-  pad: 5, 5, 5, 5
+  pad: 5, 5, 20, 5
   orig: 16, 16
+  offset: 0, 0
+  index: -1
+default-window
+  rotate: false
+  xy: 1, 20
+  size: 27, 29
+  split: 4, 3, 20, 3
+  orig: 27, 29
   offset: 0, 0
   index: -1
 window-no-padding

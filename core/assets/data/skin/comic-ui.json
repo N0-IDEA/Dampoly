@@ -204,17 +204,24 @@ com.badlogic.gdx.scenes.scene2d.ui.Tree$TreeStyle: {
 	default: {
 		plus: plus
 		minus: minus
-		selection: cyan
+
 	}
 }
+com.badlogic.gdx.scenes.scene2d.ui.Skin$TintedDrawable: {
+	dialogDim: { name: white, color: { r: 0, g: 0, b: 0, a: 0.45 } },
+	amarillo: { name: white, color: { r: 255, g: 127, b: 0, a: 0.3 } },//los colores van a su rollo
+	azul: { name: white, color: { r: 0, g: 200, b: 200, a: 0.50 } },
+	naranja: { name: white, color: { r: 255, g: 100, b: 0, a: 1.0 } },
+	rojo: { name: white, color: { r: 255, g: 0, b: 0, a: 0.6 } },
+	otroazul: { name: white, color: { r: 0, g: 0, b: 255, a: 1 } },//azul feo
+
+}
 com.badlogic.gdx.scenes.scene2d.ui.Window$WindowStyle: {
-	default: {
-		background: window
-		titleFont: font
-	}
+	default: { titleFont: font, background: window, titleFontColor: black }
 	alt: {
 		background: narration-box
 		titleFont: font
+		titleFontColor: black
 	}
 }
 }
