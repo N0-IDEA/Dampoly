@@ -11,6 +11,13 @@ Crimson-Roach
   orig: 690, 831
   offset: 0, 0
   index: -1
+Fondo-UI
+    rotate: false
+    xy: 100, 192
+    size: 200, 300
+    orig: 200, 300
+    offset: 0, 0
+    index: -1
 bubble-lower-left
   rotate: false
   xy: 207, 8

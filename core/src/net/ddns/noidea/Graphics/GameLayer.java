@@ -62,13 +62,15 @@ public class GameLayer extends Group {
         // ---------------------------------------------------------------
 
         Table cabecera = new Table(skin);
-        cabecera.top().left();
+        //cabecera.setBackground(skin.getDrawable("naranja"));
+        cabecera.top().left().pack();
         cabecera.defaults().expandX();
         cabecera.add(turno);
         cabecera.add(nombreJTurno);
         cabecera.add(dado);
 
         Table jugadores = new Table(skin);
+        jugadores.setBackground(skin.getDrawable("Fondo-UI"));//Al usar el Tree se redimensiona verticalmente pixelando la foto
         //table.setFillParent(true);
         jugadores.top().left();
         jugadores.defaults().expandX();
@@ -106,6 +108,9 @@ public class GameLayer extends Group {
         final ScrollPane scroller = new ScrollPane(jugadores);
 
         Button button = new Button(new Label("Terminar turno", skin), skin);
+
+        //button.setBackground(skin.getDrawable("azul"));
+
         button.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -127,7 +132,12 @@ public class GameLayer extends Group {
             }
         });
 
+        ///Background - Table
+
+
+
         final Table tabla = new Table();
+        tabla.setBackground(skin.getDrawable("rojo"));//Fondo de la tabla principal (no deja modificar "Button"), es la que se queda abajo
         tabla.setFillParent(true);
         tabla.add(cabecera).expandX().fillX();
         tabla.row();
