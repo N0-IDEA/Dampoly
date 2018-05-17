@@ -10,12 +10,14 @@ import net.ddns.noidea.Graphics.GameScene;
 import net.ddns.noidea.internal.Ficha;
 import net.ddns.noidea.internal.Jugador;
 import net.ddns.noidea.internal.Tablero;
+import net.ddns.noidea.Graphics.DFFont2;
 
 public class DamPoly extends ApplicationAdapter {
 	SpriteBatch batch;
 	Dado dados[];
 	Tablero tablero;
 	GameScene gameScene;
+	DFFont2 dfFont2;
 
 	private boolean showDados = false;
 
@@ -48,6 +50,7 @@ public class DamPoly extends ApplicationAdapter {
 		dados[1] = new Dado();
 		tablero = Tablero.setInstance(this);
 		gameScene = new GameScene();
+		dfFont2 = new DFFont2();
 		testing();
 	}
 
@@ -65,12 +68,12 @@ public class DamPoly extends ApplicationAdapter {
 
 		Tablero.getInstance().empezarPartida();
 	}
-
 	@Override
 	public void render () {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
+
 		if (tablero.isPlaying()) {
 			gameScene.update();
 			gameScene.act();

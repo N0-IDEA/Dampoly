@@ -1,6 +1,7 @@
 package net.ddns.noidea.Graphics;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -11,7 +12,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import net.ddns.noidea.internal.Jugador;
 import net.ddns.noidea.internal.Tablero;
-
 
 import java.util.ArrayList;
 
@@ -26,19 +26,21 @@ public class GameLayer extends Group {
     private ImageButton dado;
 
 
-
     public GameLayer() {
         loadTextures();
     }
 
     private void loadTextures()
     {
+        //dfFont2
         skin = new Skin(Gdx.files.internal(UI_FILE));
+        //skin.add("DFF", dfFont2.font, Skin.class);
     }
 
     ArrayList<VisualJugador> visualJugadorList;
 
     public void build() {
+
 
         Tablero tablero = Tablero.getInstance();
         final Label turno = new Label("Turno:", skin, "button");
