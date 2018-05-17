@@ -60,8 +60,8 @@ public class DamPoly extends ApplicationAdapter {
 	}
 
 	public static void testing() {
-		Tablero.getInstance().addJugador(new Jugador(Ficha.BARCO));
-		Tablero.getInstance().addJugador(new Jugador(Ficha.COCHE));
+    	for (Ficha ficha : Ficha.values())
+			Tablero.getInstance().addJugador(new Jugador(ficha));
 
 		Tablero.getInstance().empezarPartida();
 	}

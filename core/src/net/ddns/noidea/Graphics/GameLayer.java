@@ -80,7 +80,7 @@ public class GameLayer extends Group {
             VisualJugador visualJugador = new VisualJugador(jugador);
             visualJugadorList.add(visualJugador);
             table.add(visualJugador.getMoney()).colspan(2).right();
-            table.row().left();
+            table.row().fill();
 
             Tree tree = new Tree(skin);
             tree.add(visualJugador.nodePropiedades);
