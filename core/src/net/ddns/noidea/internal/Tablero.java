@@ -126,6 +126,13 @@ public class Tablero {
         Jugador jugador = getJugadorActual();
         Casilla nuevaCasilla = getCasillas().get(jugador.getCasillaActual().getNumero() + tirada);
         jugador.setCasillaActual(nuevaCasilla);
+
+        if(jugador.getCasillaActual().getNumero() + tirada>= 39){
+            nuevaCasilla = getCasillas().get(jugador.getCasillaActual().getNumero() +
+                    tirada-40);
+            jugador.setCasillaActual(nuevaCasilla);
+            jugador.dinero+=200;
+        }
     }
 
     private void addCasilla(Casilla casilla) {
