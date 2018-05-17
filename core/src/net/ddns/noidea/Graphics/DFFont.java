@@ -25,8 +25,6 @@ public class DFFont {
         font.setColor(Color.BLACK);
         font.getData().setScale(3);
         fontShader = new ShaderProgram(Gdx.files.internal("data/shaders/distancefield.vert"), Gdx.files.internal("data/shaders/distancefield.frag"));
-
-
     }
 
 
