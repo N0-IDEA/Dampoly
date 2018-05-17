@@ -60,27 +60,30 @@ public class GameLayer extends Group {
         // ---------------------------------------------------------------
         // Table
         // ---------------------------------------------------------------
-        Table table = new Table(skin);
-        table.setFillParent(true);
-        table.setDebug(true);
-        table.top().left();
-        table.defaults().expandX();
-        table.add(turno);
-        table.add(nombreJTurno);
-        table.add(dado);
 
-        table.row();
+        Table cabecera = new Table(skin);
+        cabecera.top().left();
+        cabecera.defaults().expandX();
+        cabecera.add(turno);
+        cabecera.add(nombreJTurno);
+        cabecera.add(dado);
+
+        Table jugadores = new Table(skin);
+        //table.setFillParent(true);
+        jugadores.top().left();
+        jugadores.defaults().expandX();
+        jugadores.row();
         //separator(table, 10);
 
         visualJugadorList = new ArrayList<VisualJugador>();
         for (Jugador jugador : tablero.getJugadores()) {
             //TODO Introducir Avatar del jugador
             //table.add(jugador.getFicha().getImagen());
-            table.add(jugador.getFicha().name());
+            jugadores.add(jugador.getFicha().name());
             VisualJugador visualJugador = new VisualJugador(jugador);
             visualJugadorList.add(visualJugador);
-            table.add(visualJugador.getMoney()).colspan(2).right();
-            table.row().fill();
+            jugadores.add(visualJugador.getMoney()).colspan(2).right();
+            jugadores.row().fill();
 
             Tree tree = new Tree(skin);
             tree.add(visualJugador.nodePropiedades);
@@ -89,9 +92,9 @@ public class GameLayer extends Group {
             visualJugador.nodePropiedades.add(visualJugador.getNodeServicios());
             visualJugador.nodePropiedades.add(visualJugador.getNodeTarjetas());
             tree.add(visualJugador.nodeVacio);
-            table.add(tree).colspan(6);
+            jugadores.add(tree).colspan(6);
 
-            table.row();
+            jugadores.row();
             //separator(table, 10);
 
 
@@ -100,8 +103,7 @@ public class GameLayer extends Group {
 
         //table.add(nombreJTurno);
 
-        addActor(table);
-
+        final ScrollPane scroller = new ScrollPane(jugadores);
 
         Button button = new Button(new Label("Terminar turno", skin), skin);
         button.addListener(new InputListener() {
@@ -124,7 +126,19 @@ public class GameLayer extends Group {
                 return true;
             }
         });
-        addActor(button);
+
+        final Table tabla = new Table();
+        tabla.setFillParent(true);
+        tabla.add(cabecera).expandX().fillX();
+        tabla.row();
+        tabla.add(scroller).fill().expand();
+        tabla.row();
+        tabla.add(button);
+        tabla.row();
+
+        addActor(tabla);
+
+        //addActor(button);
 
     }
 
