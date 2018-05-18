@@ -4,6 +4,10 @@ import net.ddns.noidea.internal.Casillas.Casilla;
 import net.ddns.noidea.internal.Jugador;
 import net.ddns.noidea.internal.Tablero;
 
+import java.util.ArrayList;
+
+import static net.ddns.noidea.internal.Jugador.*;
+
 
 public class PropiedadCasilla extends Casilla {
 
@@ -30,27 +34,24 @@ public class PropiedadCasilla extends Casilla {
     public void hipotecarPropiedad() {
     }
 
-    public void comprarla() {
-        if (casilla instanceof PropiedadCasilla) {
-            PropiedadCasilla propiedadCasilla = (PropiedadCasilla) casilla;
+    // Es necesario tener un objeto jugador para tomar el dinero
+    // Jugador j1 = new Jogador()
+    // una vez que lo tenga, lo llamo con j1.getDinerio();
+    public void comprarla(Jugador jugador) {
             if (propietario != null)
                 System.out.println();
             else {
-                if (precio > Jugador.dinero)
+                if (precio > jugador.dinero)
                     System.out.println();
                 else {
-                    Jugador.dinero -= precio;
-                    propietario = Jugador.;
+                    jugador.dinero -= precio;
+                    propietario = jugador;
                     System.out.println();
-                    Jugador.haz(this);
+                    jugador.addPropiedad(this);
                     }
             }
-        }
-        else
-        {
-            System.out.println();
-        }
-        }
+
+    }
 
     public void pagarAlquiler() {
     }

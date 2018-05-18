@@ -5,6 +5,7 @@ import net.ddns.noidea.Dado;
 import net.ddns.noidea.DamPoly;
 import net.ddns.noidea.Utils.MathUtils;
 import net.ddns.noidea.internal.Casillas.Casilla;
+import net.ddns.noidea.internal.Casillas.PropiedadCasilla;
 
 import java.util.ArrayList;
 
@@ -15,14 +16,14 @@ public class Jugador {
         tiradaDisponible = true;
         nTiradasDobles = 0;
     }
-    public void haz() {
-        ArrayList<Jugador> propiedades;
-        propiedades = new ArrayList<Jugador>();
-        propiedades.add(this);
-    }
+
     private Boolean tiradaDisponible;
 
     public Integer dinero;
+
+    public Integer getDinero() {
+        return dinero;
+    }
 
     private Integer nTiradasDobles;
 
@@ -33,6 +34,8 @@ public class Jugador {
     public Tarjeta tarjetas;
 
     public Boolean encarcelado;
+
+    private ArrayList<Casilla> propiedades = new ArrayList<Casilla>();
 
     private Ficha ficha;
 
@@ -80,7 +83,10 @@ public class Jugador {
         return tirada;
     }
 
+    public void addPropiedad(Casilla nombre){
 
+        propiedades.add(nombre);
+    }
 
     public void terminarTurno() {
         Tablero.getInstance().siguienteTurno();
@@ -99,5 +105,8 @@ public class Jugador {
     public void usarTarjeta() {
     }
 
+    public void setTiradaDisponible(Boolean tiradaDisponible) {
+        this.tiradaDisponible = tiradaDisponible;
+    }
 }
 

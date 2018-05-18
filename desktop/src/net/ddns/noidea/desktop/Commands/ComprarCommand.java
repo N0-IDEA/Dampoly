@@ -19,9 +19,10 @@ public class ComprarCommand extends CommandSingle {
     public boolean run(ColoredConsole coloredConsole, String[] strings) {
         Tablero tablero = DesktopLauncher.getDamPoly().getTablero();
         Jugador jugador = tablero.getJugadorActual();
-        propiedades = new ArrayList<Jugador>();
+
 
         Casilla casilla = jugador.getCasillaActual();
+        // Si casilla es estancia de propiedad casilla convertir p
 
 
         return true;
