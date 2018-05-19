@@ -10,14 +10,14 @@ import net.ddns.noidea.Graphics.GameScene;
 import net.ddns.noidea.internal.Ficha;
 import net.ddns.noidea.internal.Jugador;
 import net.ddns.noidea.internal.Tablero;
-import net.ddns.noidea.Graphics.DFFont2;
+import net.ddns.noidea.Graphics.DFFont;
 
 public class DamPoly extends ApplicationAdapter {
 	SpriteBatch batch;
 	Dado dados[];
 	Tablero tablero;
 	GameScene gameScene;
-	DFFont2 dfFont2;
+	DFFont dfFont;
 
 	private boolean showDados = false;
 
@@ -50,7 +50,7 @@ public class DamPoly extends ApplicationAdapter {
 		dados[1] = new Dado();
 		tablero = Tablero.setInstance(this);
 		gameScene = new GameScene();
-		dfFont2 = new DFFont2();
+		dfFont = new DFFont();
 		testing();
 	}
 
