@@ -41,7 +41,7 @@ public class DesktopLauncher {
     }
 
     public static void turno() {
-        commandManager.setValidCommands(Arrays.asList("help", "dado"));
+        commandManager.setValidCommands(Arrays.asList("help", "dado","hipotecar"));
         ColoredConsole coloredConsole = new ColoredConsole();
         Tablero tablero = getDamPoly().getTablero();
         Jugador jugador = tablero.getJugadorActual();
@@ -56,7 +56,7 @@ public class DesktopLauncher {
         Tablero tablero = getDamPoly().getTablero();
         Jugador jugador = tablero.getJugadorActual();
         coloredConsole.sendMessage(String.format("Has caido en la casilla nº%d nombre: %s", jugador.getCasillaActual().getNumero(), jugador.getCasillaActual().getNombre()));
-        commandManager.setValidCommands(Arrays.asList("help", "terminar", "comprar"));
+        commandManager.setValidCommands(Arrays.asList("help", "terminar", "comprar","hipotecar"));
     }
 
     private static void initCommandManager() {
@@ -69,6 +69,7 @@ public class DesktopLauncher {
         commandManager.addCommand(new AddJugador());
         commandManager.addCommand(new TerminarTurnoCommand());
         commandManager.addCommand(new ComprarCommand());
+        commandManager.addCommand(new HipotecarCommand());
         commandManager.setRestricted(true);
         commandManager.start();
     }
