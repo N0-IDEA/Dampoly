@@ -24,7 +24,7 @@ public class HipotecarCommand  extends CommandSingle{
                 coloredConsole.error("Esta propiedad no le pertenece, no puede hipotecarla ");
             else {
                 propiedadCasilla.propietario = jugador;
-                coloredConsole.sendMessage("Has hipotecado esta casilla " + propiedadCasilla.getNombre());
+                coloredConsole.sendMessage("Has hipotecado esta casilla " + propiedadCasilla.getNombre() + "  +  " + propiedadCasilla.hipoteca + "$");
                 jugador.dinero += propiedadCasilla.hipoteca;
 
             }
