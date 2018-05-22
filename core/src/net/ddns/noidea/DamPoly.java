@@ -12,10 +12,10 @@ import net.ddns.noidea.internal.Jugador;
 import net.ddns.noidea.internal.Tablero;
 
 public class DamPoly extends ApplicationAdapter {
-	SpriteBatch batch;
-	Dado dados[];
-	Tablero tablero;
-	GameScene gameScene;
+	private SpriteBatch batch;
+	private Dado dados[];
+	private Tablero tablero;
+	private GameScene gameScene;
 
 	private boolean showDados = false;
 
@@ -66,6 +66,8 @@ public class DamPoly extends ApplicationAdapter {
 			gameScene.act();
 			gameScene.draw();
 		}
+		//if (){
+
 		if (isShowDados()) {
 			//TODO FIX THIS
 			batch.end();
