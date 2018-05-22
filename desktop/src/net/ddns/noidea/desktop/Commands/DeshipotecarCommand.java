@@ -22,7 +22,7 @@ public class DeshipotecarCommand  extends CommandSingle{
 
         if(casilla instanceof PropiedadCasilla) {
             PropiedadCasilla propiedadCasilla = (PropiedadCasilla) casilla;
-            coloredConsole.sendMessage("Has deshipotecado esta casilla " + propiedadCasilla.getNombre());
+            coloredConsole.sendMessage("Has deshipotecado esta casilla " + propiedadCasilla.getNombre() + "  -  " + propiedadCasilla.hipoteca + "$");
             jugador.dinero -= propiedadCasilla.hipoteca;
         }else {
             PropiedadCasilla propiedadCasilla = (PropiedadCasilla) casilla;

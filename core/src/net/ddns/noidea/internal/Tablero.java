@@ -33,7 +33,7 @@ public class Tablero {
         casillas = new ArrayList<Casilla>();
         cargarCasillas();
         jugadores = new ArrayList<Jugador>();
-        dineroInicial = 100;
+        dineroInicial = 500;
         playing = false;
     }
 
