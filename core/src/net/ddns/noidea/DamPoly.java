@@ -2,10 +2,8 @@ package net.ddns.noidea;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import net.ddns.noidea.Graphics.GameLayer;
 import net.ddns.noidea.Graphics.GameScene;
 import net.ddns.noidea.internal.Ficha;
 import net.ddns.noidea.internal.Jugador;
