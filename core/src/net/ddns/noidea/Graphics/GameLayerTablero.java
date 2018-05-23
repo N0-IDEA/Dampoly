@@ -32,7 +32,7 @@ public class GameLayerTablero extends Group {
 
 
     public void build() {
-        Texture texture = new Texture(Gdx.files.internal("data/tablero.png" ));
+        Texture texture = new Texture(Gdx.files.internal("data/tablero.jpg" ));
         texture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         tableroInterfaz = new ImageButton(new TextureRegionDrawable(new TextureRegion(texture)));
 
