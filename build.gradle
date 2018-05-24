@@ -39,13 +39,14 @@ allprojects {
 
 project(":desktop") {
     apply plugin: "java"
-
+    compileJava.options.encoding = 'UTF-8'
 
     dependencies {
         compile project(":core")
         compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
         compile "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
+        compile "net.java.dev.jna:jna:4.5.0"
         compile "net.ddns.fquintana:ConsoleCommands:1.0.3-SNAPSHOT"
         
     }
