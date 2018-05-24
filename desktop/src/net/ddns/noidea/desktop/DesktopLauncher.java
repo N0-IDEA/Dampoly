@@ -5,7 +5,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import net.ddns.fquintana.ChatColor;
 import net.ddns.fquintana.ConsoleCommands.Commands.HelpCommand;
 import net.ddns.fquintana.ConsoleCommands.Commands.StopCommand;
-import net.ddns.fquintana.ConsoleCommands.CommandsCore.ColoredConsole;
+import net.ddns.fquintana.ConsoleCommands.Console.ColoredConsole;
 import net.ddns.fquintana.ConsoleCommands.CommandsCore.CommandManager;
 import net.ddns.noidea.DamPoly;
 import net.ddns.noidea.desktop.Commands.*;
