@@ -1,6 +1,6 @@
 package net.ddns.noidea.desktop.Commands;
 
-import net.ddns.fquintana.ConsoleCommands.CommandsCore.ColoredConsole;
+import net.ddns.fquintana.ConsoleCommands.Console.ColoredConsole;
 import net.ddns.fquintana.ConsoleCommands.CommandsCore.CommandSingle;
 import net.ddns.noidea.desktop.DesktopLauncher;
 import net.ddns.noidea.internal.Casillas.PropiedadCasilla;
