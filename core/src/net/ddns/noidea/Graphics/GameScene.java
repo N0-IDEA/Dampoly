@@ -15,15 +15,19 @@ public class GameScene extends Stage {
     public GameScene(){
         super();
 
-        setViewport(new ScalingViewport(Scaling.stretch,getWidth()*9/7,getHeight()*9/7));
+        setViewport(new ScalingViewport(Scaling.stretch,getWidth(),getHeight()));
+
+        float size = getWidth()/3;
+
         gameLayer = new GameLayer();
-        gameLayerTablero = new GameLayerTablero();
-        //float maxGameLayer = (gameLayer.getWidth())/3;
-        gameLayer.setWidth(getWidth()/4);
-        gameLayerTablero.setPosition(getWidth()/4, 0);
-        gameLayerTablero.setWidth(((getWidth()*3)/4));
+        gameLayer.setWidth(size);
         gameLayer.setHeight(getHeight());
+
+        gameLayerTablero = new GameLayerTablero();
+        gameLayerTablero.setWidth(size*2);
         gameLayerTablero.setHeight(getHeight());
+        gameLayerTablero.setPosition(size,0);
+
         addActor(gameLayer);
         addActor(gameLayerTablero);
     }
