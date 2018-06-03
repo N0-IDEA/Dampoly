@@ -124,16 +124,24 @@ public class Tablero {
 
     public void moverJugador(int tirada) {
         Jugador jugador = getJugadorActual();
-        Casilla nuevaCasilla = getCasillas().get(jugador.getCasillaActual().getNumero() + tirada);
-        jugador.setCasillaActual(nuevaCasilla);
-
-
-        if(jugador.getCasillaActual().getNumero() + tirada>= 39){
-            nuevaCasilla = getCasillas().get(jugador.getCasillaActual().getNumero() +
-                    tirada-40);
+        Casilla nuevaCasilla;
+        //System.out.println(jugador.getCasillaActual().getNumero());
+        //System.out.println(getCasillas().size());
+        //System.out.println("El dado ha dado: " + tirada );
+        if(jugador.getCasillaActual().getNumero() + tirada >= 40){
+            nuevaCasilla = getCasillas().get(0 + (tirada - (getCasillas().size() - jugador.getCasillaActual().getNumero())));
             jugador.setCasillaActual(nuevaCasilla);
             jugador.dinero+=200;
+            //System.out.println(jugador.getCasillaActual().getNumero());
         }
+        else {
+            nuevaCasilla = getCasillas().get(jugador.getCasillaActual().getNumero() + tirada);
+            jugador.setCasillaActual(nuevaCasilla);
+            //System.out.println(jugador.getCasillaActual().getNumero());
+        }
+
+
+
     }
 
     private void addCasilla(Casilla casilla) {

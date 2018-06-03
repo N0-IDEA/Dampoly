@@ -46,7 +46,7 @@ public class DamPoly extends ApplicationAdapter {
 		dados[1] = new Dado();
 		tablero = Tablero.setInstance(this);
 		gameScene = new GameScene();
-		//testing();
+		testing();
 	}
 
 	@Override
