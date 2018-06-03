@@ -6,41 +6,30 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Align;
 import net.ddns.noidea.internal.Casillas.Casilla;
 
-import java.util.ArrayList;
+public class GCasilla extends Group {
+    public static int width = 75;
+    public static int height = 100;
 
-public class GCasilla extends Actor {
-    Casilla casilla;
-
+    private Casilla casilla;
     private Texture texture;
-
     private Skin skin;
-
     private ShapeRenderer shapeRenderer;
     private boolean projectionMatrixSet;
 
-    private Label label;
-
-    public GCasilla(float x, float y, float width, float height, Color color) {
-        setX(x);
-        setY(y);
-        setWidth(width);
-        setHeight(height);
-        setColor(color);
-
-        shapeRenderer = new ShapeRenderer();
-        projectionMatrixSet = false;
-    }
+    private Table table;
 
     public GCasilla(float x, float y, Color color, Casilla casilla, Skin skin) {
         setX(x);
         setY(y);
-        setWidth(75);
-        setHeight(100);
+        setWidth(width);
+        setHeight(height);
         setColor(color);
         this.skin = skin;
         loadCasilla(casilla);
@@ -60,13 +49,25 @@ public class GCasilla extends Actor {
             stringBuilder.append(strs[i]);
         }
 
-        label = new Label(stringBuilder.toString(), skin);
+        table = new Table(skin);
 
-        //TODO FIX TRANSFORM MATRIX
-        label.setY(getY() + 20);
-        label.setX(getX() + 0);
+        table.setFillParent(true);
+
+        Label label = new Label(stringBuilder.toString(), skin);
 
         label.setAlignment(Align.center);
+
+        table.add(label).expand().top();
+        table.row().right();
+
+        table.right().bottom();
+
+        Label labelNum = new Label("n" + casilla.getNumero().toString(), skin);;
+
+        table.add(labelNum);
+
+        addActor(table);
+
     }
 
     private void createTexture(int width, int height, Color color) {
@@ -90,9 +91,7 @@ public class GCasilla extends Actor {
         shapeRenderer.rect(getX(), getY(), getWidth(), getHeight());
         shapeRenderer.end();
         batch.begin();
-
-        label.draw(batch, parentAlpha);
+        super.draw(batch, parentAlpha);
     }
-
 
 }

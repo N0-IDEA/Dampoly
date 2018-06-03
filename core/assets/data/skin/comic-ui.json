@@ -9,6 +9,9 @@ com.badlogic.gdx.graphics.g2d.BitmapFont: {
 	title: {
 		file: font-title-export.fnt
 	}
+	normal: {
+		file: normal.fnt
+	}
 }
 com.badlogic.gdx.graphics.Color: {
 	black: {
@@ -72,6 +75,10 @@ com.badlogic.gdx.scenes.scene2d.ui.ImageButton$ImageButtonStyle: {
 com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
 	default: {
 		font: font
+		fontColor: black
+	}
+	normal: {
+		font: normal
 		fontColor: black
 	}
 	button: {

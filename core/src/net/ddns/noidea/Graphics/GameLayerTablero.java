@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
-import net.ddns.noidea.DamPoly;
+import net.ddns.noidea.internal.Casillas.Casilla;
 import net.ddns.noidea.internal.Tablero;
 
 public class GameLayerTablero extends Group {
@@ -35,8 +35,27 @@ public class GameLayerTablero extends Group {
         tabla.add(tableroInterfaz).width(getWidth());*/
 
         //addActor(tabla);
-        addActor(new GCasilla(0, 0, Color.BLUE, Tablero.getInstance().getCasillas().get(4), skin));
-        addActor(new GCasilla(75, 0, Color.BLUE, Tablero.getInstance().getCasillas().get(5), skin));
+        int x = 75 * 11;
+        int y = 0;
+        for (int i = 0; i < Tablero.getInstance().getCasillas().size(); i++) {
+
+            Casilla casilla = Tablero.getInstance().getCasillas().get(i);
+
+            if (i < 11)
+                x = x-75;
+
+            if (i >= 21 && i <31)
+                x = x+75;
+
+            if (i > 10 && i <= 20)
+                y = y + 100;
+
+            if (i > 30)
+                y = y - 100;
+
+            GCasilla casillaClone = new GCasilla(x, y, Color.BLACK,casilla, skin);
+            addActor(casillaClone);
+        }
     }
 
 

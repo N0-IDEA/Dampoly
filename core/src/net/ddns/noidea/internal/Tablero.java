@@ -161,7 +161,7 @@ public class Tablero {
         addCasilla(new TarjetasCasilla("Suerte"));
         addCasilla(new Calle("Avenida De Reina Victoria",100,50,6,30,90,270,400,550,50,50));
         addCasilla(new Calle("Calle Bravo Murillo",120,60,8,40,100,300,450,600,50,50));
-        addCasilla(new TarjetasCasilla("Cárcel / Solo Visitas"));//De visita por la carcel
+        addCasilla(new TarjetasCasilla("Carcel / Solo Visitas"));//De visita por la carcel
         addCasilla(new Calle("Glorieta De Bilbao", 140,70,10,50,150,450,625,750,100,100));
         addCasilla(new Servicio("Compañia de Electricidad", 150,75));
         addCasilla(new Calle("Calle De Alberto Aguilera", 140, 70,10,50,150,450,625,750,100,100));

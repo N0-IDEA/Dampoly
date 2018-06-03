@@ -8,6 +8,7 @@ import net.ddns.fquintana.ConsoleCommands.Commands.StopCommand;
 import net.ddns.fquintana.ConsoleCommands.Console.ColoredConsole;
 import net.ddns.fquintana.ConsoleCommands.CommandsCore.CommandManager;
 import net.ddns.noidea.DamPoly;
+import net.ddns.noidea.Graphics.GameScene;
 import net.ddns.noidea.desktop.Commands.*;
 import net.ddns.noidea.internal.Casillas.Casilla;
 import net.ddns.noidea.internal.Ficha;
@@ -24,6 +25,8 @@ public class DesktopLauncher {
 	public static void main (String[] arg) {
 	    initCommandManager();
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+		config.width = 213 + GameScene.width;
+		config.height = GameScene.height;
 		damPoly = new DamPoly();
 		new LwjglApplication(damPoly, config);
         ColoredConsole coloredConsole = new ColoredConsole();
