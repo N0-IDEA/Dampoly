@@ -16,16 +16,13 @@ import net.ddns.noidea.internal.Jugador;
 import net.ddns.noidea.internal.Tablero;
 
 import java.util.Arrays;
-import java.util.Timer;
-import java.util.TimerTask;
-
 public class DesktopLauncher {
     private static DamPoly damPoly;
     private static CommandManager commandManager;
 	public static void main (String[] arg) {
 	    initCommandManager();
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		config.width = 213 + GameScene.width;
+		config.width =  GameScene.width;
 		config.height = GameScene.height;
 		damPoly = new DamPoly();
 		new LwjglApplication(damPoly, config);

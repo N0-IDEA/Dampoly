@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Align;
 import net.ddns.noidea.internal.Casillas.Casilla;
+import net.ddns.noidea.internal.Jugador;
 
 public class GCasilla extends Group {
     public static int width = 75;
@@ -90,6 +91,17 @@ public class GCasilla extends Group {
         shapeRenderer.setColor(color.r, color.g, color.b, color.a * parentAlpha);
         shapeRenderer.rect(getX(), getY(), getWidth(), getHeight());
         shapeRenderer.end();
+
+        for (int i = 0; i < casilla.getJugadores().size(); i++) {
+            Jugador jugador = casilla.jugadores.get(i);
+
+            color = jugador.getFicha().getColor();
+            shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+            shapeRenderer.setColor(color.r, color.g, color.b, color.a * parentAlpha);
+            shapeRenderer.circle(getX() + getWidth() / 2, getY() + 30 + (10*i), 20);
+            shapeRenderer.end();
+        }
+
         batch.begin();
         super.draw(batch, parentAlpha);
     }

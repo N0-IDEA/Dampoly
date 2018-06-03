@@ -26,10 +26,6 @@ public class Casilla {
     public ArrayList<Jugador> jugadores;
 
     public void addJugador(Jugador jugador) {
-        Casilla casilla = jugador.getCasillaActual();
-        if (casilla != null)
-            casilla.removeJugador(jugador);
-        jugador.setCasillaActual(this);
         jugadores.add(jugador);
     }
 

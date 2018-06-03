@@ -74,7 +74,7 @@ public class Tablero {
         for (Jugador jugador : jugadores) {
             jugador.dinero = dineroInicial;
             Casilla casilla = getCasillas().get(0);
-            casilla.addJugador(jugador);
+            jugador.setCasillaActual(casilla);
         }
 
         Gdx.app.postRunnable(new Runnable() {

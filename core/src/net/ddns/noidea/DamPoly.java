@@ -80,8 +80,8 @@ public class DamPoly extends ApplicationAdapter {
 			batch.begin();
 			//////
 
-			batch.draw(dados[0].getImg(), 0, 0);
-			batch.draw(dados[1].getImg(), 250, 0);
+			batch.draw(dados[0].getImg(),  300, 300);
+			batch.draw(dados[1].getImg(), 300+250, 300);
 		}
 		batch.end();
 		Gdx.input.setInputProcessor(gameScene);

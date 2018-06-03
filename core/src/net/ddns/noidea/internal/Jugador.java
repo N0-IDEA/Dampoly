@@ -41,7 +41,10 @@ public class Jugador {
     }
 
     public void setCasillaActual(Casilla casillaActual) {
+        if (this.casillaActual != null)
+            this.casillaActual.removeJugador(this);
         this.casillaActual = casillaActual;
+        casillaActual.addJugador(this);
     }
 
     public Boolean getTiradaDisponible() {

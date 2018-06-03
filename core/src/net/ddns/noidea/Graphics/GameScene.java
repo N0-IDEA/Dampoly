@@ -13,15 +13,14 @@ public class GameScene extends Stage {
     private GameLayerTablero gameLayerTablero;
     private static float scale = 0.8f;
 
+    private static float size = 213;
     public static int height = (int) ((GCasilla.height * 11) * scale);
-    public static int width = (int) ((GCasilla.width * 11) * scale);
+    public static int width = (int) size + (int) ((GCasilla.width * 11) * scale);
 
     public GameScene() {
         super();
 
         setViewport(new ScalingViewport(Scaling.stretch, getWidth(), getHeight()));
-
-        float size = 213;
 
         gameLayer = new GameLayer();
         gameLayer.setWidth(size);
